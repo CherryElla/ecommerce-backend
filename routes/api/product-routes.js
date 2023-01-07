@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 });
 
 // get one product
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
   try {
@@ -119,7 +119,8 @@ router.delete('/:id', (req, res) => {
       where: {
         id: req.params.id,
       },
-    }),
+    });
+    
     if (!productTagIds) {
       res.status(404).json({message: "No product found with that id!"});
       return
