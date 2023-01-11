@@ -112,10 +112,10 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id',  (req, res) => {
   // delete one product by its `id` value
   try {
-    const productTagIds = ProductTag.destroy({
+    const productTagIds =  Product.destroy({
       where: {
         id: req.params.id,
       },
